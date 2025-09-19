@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<article>
+  <h2>Entry #{{ entry.id }}</h2>
+  <div class="meta">
+    <span class="badge {{ entry.sentiment }}">{{ entry.sentiment }}</span>
+    <time>{{ entry.created_at }}</time>
+  </div>
+  <p>{{ entry.content }}</p>
+  <h3>Keywords</h3>
+  <p>
+    {% for k in keywords %}
+      <span class="kw">#{{ k }}</span>
+    {% else %}
+      <em>No keywords.</em>
+    {% endfor %}
+  </p>
+  <p><a href="/">Back</a></p>
+</article>
+{% endblock %}

@@ -1,0 +1,14 @@
+body { font-family: system-ui, Arial, sans-serif; margin: 0 auto; max-width: 880px; padding: 1rem; }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+nav a { margin-right: .5rem; text-decoration: none; color: #0a58ca; }
+.compose textarea { width: 100%; font-size: 1rem; }
+.compose button { margin-top: .5rem; }
+.entry { border: 1px solid #eee; padding: .75rem; border-radius: .5rem; margin: .75rem 0; }
+.badge { padding: 2px 8px; border-radius: 12px; font-size: .8rem; color: white; }
+.badge.positive { background: #2e7d32; }
+.badge.neutral { background: #616161; }
+.badge.negative { background: #c62828; }
+.kw { display: inline-block; background: #f1f3f5; padding: 2px 6px; border-radius: 8px; margin: 2px; }
+.pager a { margin-right: .5rem; }
+.topics ul { list-style: none; padding: 0; }
+.meta { display: flex; gap: .5rem; align-items: center; color: #666; }

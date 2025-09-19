@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Personal Journal</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header>
+  <h1>Personal Journal</h1>
+  <nav>
+    <a href="/">All</a>
+    <a href="/?sentiment=positive">Positive</a>
+    <a href="/?sentiment=neutral">Neutral</a>
+    <a href="/?sentiment=negative">Negative</a>
+  </nav>
+</header>
+<main>
+  {% block content %}{% endblock %}
+</main>
+<footer>
+  <small>&copy; {{ 2025 }}</small>
+</footer>
+</body>
+</html>

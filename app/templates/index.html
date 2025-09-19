@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="compose">
+  <h2>Write a new entry</h2>
+  <form method="post" action="/entries">
+    <textarea name="content" rows="6" placeholder="How are you feeling today?" required minlength="10" maxlength="5000"></textarea>
+    <button type="submit">Save</button>
+  </form>
+</section>
+
+<section class="topics">
+  <h3>Top topics</h3>
+  <ul>
+    {% for word, count in topics %}
+      <li>{{ word }} — {{ count }}</li>
+    {% else %}
+      <li>No topics yet.</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="entries">
+  <h2>Entries {% if sentiment %} ({{ sentiment }}) {% endif %}</h2>
+  {% for e in entries %}
+    <article class="entry">
+      <div class="meta">
+        <span class="badge {{ e.sentiment }}">{{ e.sentiment }}</span>
+        <time>{{ e.created_at }}</time>
+      </div>
+      <p>{{ e.content }}</p>
+      <p class="keywords">
+        {% for k in e.keywords.split(",") if k %}
+          <span class="kw">#{{ k }}</span>
+        {% endfor %}
+      </p>
+      <a href="/entries/{{ e.id }}">View details</a>
+    </article>
+  {% else %}
+    <p>No entries yet. Write your first one above.</p>
+  {% endfor %}
+</section>
+
+<nav class="pager">
+  {% if page > 1 %}
+    <a href="/?sentiment={{ sentiment }}&page={{ page - 1 }}">Previous</a>
+  {% endif %}
+  <a href="/?sentiment={{ sentiment }}&page={{ page + 1 }}">Next</a>
+</nav>
+{% endblock %}
