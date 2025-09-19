@@ -8,17 +8,6 @@
   </form>
 </section>
 
-<section class="topics">
-  <h3>Top topics</h3>
-  <ul>
-    {% for word, count in topics %}
-      <li>{{ word }} — {{ count }}</li>
-    {% else %}
-      <li>No topics yet.</li>
-    {% endfor %}
-  </ul>
-</section>
-
 <section class="entries">
   <h2>Entries {% if sentiment %} ({{ sentiment }}) {% endif %}</h2>
   {% for e in entries %}
@@ -46,4 +35,15 @@
   {% endif %}
   <a href="/?sentiment={{ sentiment }}&page={{ page + 1 }}">Next</a>
 </nav>
+ 
+<section class="topics">
+  <h3>Top topics</h3>
+  <ul>
+    {% for word, count in topics %}
+      <li>{{ word }} — {{ count }}</li>
+    {% else %}
+      <li>No topics yet.</li>
+    {% endfor %}
+  </ul>
+</section>
 {% endblock %}
